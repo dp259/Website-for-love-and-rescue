@@ -10,20 +10,20 @@ The Joy and Love Rescue website is designed to support the mission of rescuing d
 
 ### Project Structure
 
-Website-for-love-and-rescue/
-├── Backend/             # (Currently empty - for backend logic)
-├── Frontend/            # Contains the website's visual and static assets
-│   ├── home.html
-│   ├── logo_joy_and_love_rescue.jpg
-│   └── background_joyandlove_website.jpg
-├── Database/            # Houses database scripts and data
-│   ├── sql_table_joyandlove.py
-│   ├── joyandlove_dog_info.csv
-│   ├── joyandlove_db.db
-│   └── __pycache__/
-├── README.md            # Project documentation
-├── requirements.txt     # Python dependencies
-└── .gitignore           # Excluded files and folders
+Website-for-love-and-rescue/ <br>
+├── Backend/             # (Currently empty - for backend logic) <br>
+├── Frontend/            # Contains the website's visual and static assets <br>
+│   ├── home.html <br>
+│   ├── logo_joy_and_love_rescue.jpg <br>
+│   └── background_joyandlove_website.jpg <br>
+├── Database/            # Houses database scripts and data <br>
+│   ├── sql_table_joyandlove.py <br>
+│   ├── joyandlove_dog_info.csv <br>
+│   ├── joyandlove_db.db <br>
+│   └── __pycache__/ <br>
+├── README.md            # Project documentation <br>
+├── requirements.txt     # Python dependencies <br>
+└── .gitignore           # Excluded files and folders <br>
 
 ### Prerequisites
 - Python 3.8+
