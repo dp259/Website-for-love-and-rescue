@@ -1,3 +1,4 @@
 joyandlove_env/
 __pycache__/
 *.db
+*.pyc
