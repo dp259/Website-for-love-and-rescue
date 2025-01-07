@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescue Website Mashup</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('background_joyandlove_website.jpg');
+            background-repeat: repeat;
+            background-size: 39%;
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: darkred;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        nav a:hover {
+            color: #ff4081;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            color: black;
+            padding: 60px 20px;
+        }
+
+        .hero .left {
+            width: 50%;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            transform: translate(0%, 300%);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            background-color: darkred;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transform: translate(0%, 300%);
+        }
+
+        .hero button:hover {
+            background-color: #ff2b6b;
+        }
+
+        .hero .right img {
+            width: 80%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Sections (Adopt, Foster, Volunteer) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 20px;
+        }
+
+        .grid-item-left, .grid-item-right {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(70%);
+        }
+
+        .grid-item-left button {
+            width: 50%;
+            height: 50%;
+            background-color: rgba(139, 0, 0, 0.75);
+            font-size: 2em;
+            transform: translate(15%, 50%);
+            color: white;
+        }
+        .grid-item-right button {
+            width: 50%;
+            height: 50%;
+            background-color: rgba(139, 0, 0, 0.75);
+            font-size: 2em;
+            transform: translate(-15%, 50%);
+            color: white;
+        }
+
+        .grid-item h3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        /* Footer */
+        footer {
+            background-color: darkred;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        footer a {
+            color: #ff4081;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Joy and Love Pet Rescue</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#adopt">Adopt</a>
+            <a href="#foster">Foster</a>
+            <a href="#volunteer">Volunteer</a>
+            <a href="#donate">Give</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="left">
+            <h2>Spreading Joy, Sharing Love, Saving lives</h2>
+            <button>DONATE</button>
+        </div>
+        <div class="right">
+            <img src="logo_joy_and_love.png" alt="Pet Rescue Hero Image">
+        </div>
+    </section>
+
+    <!-- Grid Section -->
+    <section class="grid">
+        <div class="grid-item-left">
+            <button>Adopt a Dog</button>
+        </div>
+        <div class="grid-item-right">
+            <button>Foster</button>
+        </div>
+        <div class="grid-item-left">
+            <button>Volunteer</button>
+        </div>
+        <div class="grid-item-right">
+            <button>Joy and Love<br>Rescue Veterans</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Joy and Love Pet Rescue | Built with ❤️ for animal lovers.</p>
+        <a href="#top">Back to Top</a>
+    </footer>
+</body>
+</html>
