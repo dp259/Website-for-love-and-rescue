@@ -133,11 +133,12 @@
         </div>
         <!-- Dogs Grid -->
         <div class="dog-grid">
+            
         {% for dog in available_dogs %}
             <div class="dog-item">
                 <form action="{{ url_for('dog_details', dog_id=dog['dog_id']) }}" method="GET">
                     <button type="submit" class="dog-button">
-                        <img src="{{ url_for('static', filename='images/' + dog['name'] + '1.jpeg') }}" alt="Image of {{ dog['name'] }}">
+                        <img src="{{ url_for('static', filename='images/' + dog['name']|lower + '1.jpeg') }}" alt="Image of {{ dog['name'] }}">
                     </button>
                     <p><strong>{{ dog['name'] }}</strong></p>
                 </form>
