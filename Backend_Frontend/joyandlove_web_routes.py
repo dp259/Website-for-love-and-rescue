@@ -6,13 +6,17 @@ import secrets
 import os
 
 joyandlove_web = Flask(__name__)
-joyandlove_web.secret_key = os.environ.get("SECRET_KEY", secrets.token_hex(32))
+joyandlove_web.secret_key = os.environ.get("Secret_Key", secrets.token_hex(32))
 
 # Database configuration
 DATABASE_URL = "sqlite:///joyandlove_db.db"
 engine = create_engine(DATABASE_URL)
 Session = sessionmaker(bind=engine)
 session = Session()
+
+@joyandlove_web.route('/')
+def index():
+    return redirect(url_for('home'))
 
 @joyandlove_web.route("/home", methods = ['GET'])
 def home():
