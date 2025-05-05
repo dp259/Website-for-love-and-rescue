@@ -16,7 +16,7 @@ session = Session()
 
 @joyandlove_web.route('/')
 def index():
-    return redirect(url_for('home'))
+    return render_template('home.html')  # Replace with your actual template
 
 @joyandlove_web.route("/home", methods = ['GET'])
 def home():
