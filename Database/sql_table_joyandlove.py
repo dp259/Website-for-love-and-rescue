@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, Integer, String, Float, MetaData, ForeignKey, Enum, Boolean, delete
 from sqlalchemy.orm import DeclarativeBase, relationship, registry, Mapped, mapped_column, sessionmaker
 import pandas as pd
+import os
 
 engine = create_engine('sqlite:///joyandlove_db.db')
 sex_enum = Enum('Male', 'Female', name='sex_enum')
@@ -72,7 +73,8 @@ Session = sessionmaker(bind = engine)
 
 try:
     # Load the datasets
-    df_dogs = pd.read_csv('Database\joyandlove_dog_info.csv', encoding='windows-1252')
+    csv_path = os.path.join(os.path.dirname(__file__), 'Database', 'joyandlove_dog_info.csv')
+    df_dogs = pd.read_csv(csv_path, encoding='windows-1252')
 
     # Select important columns from dataset
     required_columns = ['name', 'age', 'breed', 'story', 'Sex', 'characteristic', 'age_desc', 'adopted', 'fee', 'image_paths']
