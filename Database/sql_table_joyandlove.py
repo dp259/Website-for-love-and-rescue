@@ -73,7 +73,7 @@ Session = sessionmaker(bind = engine)
 
 try:
     # Load the datasets
-    csv_path = os.path.join(os.path.dirname(__file__), 'Database', 'joyandlove_dog_info.csv')
+    csv_path = os.path.join(os.path.dirname(__file__), 'joyandlove_dog_info.csv')
     df_dogs = pd.read_csv(csv_path, encoding='windows-1252')
 
     # Select important columns from dataset
