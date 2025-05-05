@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('../images/background_joyandlove_website.jpg');
+    background-repeat: repeat;
+    background-size: 39%;
+    color: white;
+    overflow-x: hidden; 
+}
+
+/* Header */
+header {
+    background-color: darkred;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+header h1 {
+    color: white;
+    font-size: 2em;
+}
+
+h1:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.dropbtn {
+    background-color: darkred;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer a {
+    color: #ff4081;
+    text-decoration: none;
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Initially Hidden) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Form Buttons Inside Dropdown */
+.dropdown-content form button {
+    background-color: white;
+    color: darkred;
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dropdown-content form button:hover {
+    background-color: #ffcccb;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown Button Hover */
+.dropdown:hover .dropbtn {
+    background-color: #ff2b6b;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+}
+
+/* Filters Section */
+.filter-section {
+    display: flex; /* Enable flexbox */
+    gap: 3%; /* Space between filter buttons */
+    margin-left: 2%;
+    margin-bottom: 10px; /* Add spacing at the bottom */
+    flex-wrap: wrap; /* Allow the filters to wrap to the next line if necessary */
+}
+
+.name-box input {
+    height: 100%;
+}
+
+.filter-container {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-container button {
+    background-color: darkred;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    display: block;
+}
+
+.filter-container:hover button {
+    background-color: #ff4081;
+}
+
+.filter-btn:hover .sexDropdown {
+    display: block;
+}
+
+.dropdown-filter {
+    position: absolute;
+    left: 0;
+    width: 100%; /* Same width as the button */
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.sex-filter, .breed-filter, .characteristic-filter {
+    width: 100%;
+    padding: 0;
+    font-size: 1em;
+    border-radius: 5px;
+    display: none;
+    border: 1px solid #ccc;
+    z-index: 10;
+}
+
+/* Dogs Grid */
+.dog-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    gap: 0;
+    padding-top: 2%;
+    justify-content: center;
+}
+
+.dog-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 8%;
+}
+
+.dog-item {
+    color: black;
+}
+
+.dog-item p {
+    margin-top: 1%; /* Adds space between the image and the name */
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+}
+
+.dog-card {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.dog-card h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.dog-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.dog-button img {
+    width: 80%; /* Set desired width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners */
+    transition: opacity 0.3s ease; /* Smooth hover effect */
+}
+
+.dog-button:hover img {
+    opacity: 0.6; /* Adjust transparency level (0.0 to 1.0) */
+}
+
+/* Back Button Style */
+.back-button {
+    font-size: 1.2em;
+    color: darkred;
+    cursor: pointer;
+    margin: 10px 20px;
+    display: inline-block;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+/* Dog Details Section */
+.dog-details {
+    width: 70%;
+    position: relative;
+    top: 50%; /* Position the top at 50% of the page height */
+    left: 15%; /* Position the left at 50% of the page width */
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 2%;
+    margin-top: 2%;
+    position: relative;
+}
+
+.dog-details img {
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.dog-details {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.dog-details h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.dog-details p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.adopt-background {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 2%;
+    min-height: 100vh;
+    margin-top: 2%;
+    width: 96%;
+    position: relative;
+    transform: translateX(2%);
+}

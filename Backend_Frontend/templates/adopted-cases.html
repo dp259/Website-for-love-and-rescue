@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy and Love Rescue Alumni</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/alumni.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1 onclick="redirect('home')">Joy and Love Pet Rescue</h1>
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn">About</button>
+                <div class="dropdown-content">
+                    <form action="/about" method="POST">
+                        <button type="submit">Our Mission</button>
+                    </form>
+                    <form action="/team" method="POST">
+                        <button type="submit">Team</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Adopt</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('adopt') }}">
+                        <button type="submit">Adopt a Dog</button>
+                    </form>
+                    <form action="{{ url_for('adopted_cases') }}">
+                        <button type="submit">Adopted Dogs</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Get Involved</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('foster') }}">
+                        <button type="submit">Foster</button>
+                    </form>
+                    <form action="{{ url_for('volunteer') }}">
+                        <button type="submit">Volunteer</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Give</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('donate') }}">
+                        <button onclick = "redirect('donate')">Donate</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class = "title-background">
+        <h1>Joy and Love Rescue Alumni</h1>
+        <p>Celebrating the wonderful dogs that have found their forever homes!</p>
+    </div>
+        
+    <section class="alumni-grid">
+        {% for dog in adopted_dogs %}
+        <div class="alumni-row">
+            <div class="dog-images">
+                {% for image in dog.img %}
+                <img src="{{ url_for('static', filename='images/' + image) }}" alt="{{ dog.name }}">
+                {% endfor %}
+            </div>
+            <div class="dog-info">
+                <h2>{{ dog.name }}</h2>
+                <p><strong>Breed:</strong> {{ dog.breed }}</p>
+                <p><strong>Characteristics:</strong> {{ dog.characteristics }}</p>
+            </div>
+            <div class="testimony">
+                <blockquote>{{ dog.testimony }}</blockquote>
+                <!-- <p>- {{ dog.family_name }}</p> -->
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Joy and Love Pet Rescue | Built with ❤️ for animal lovers.</p>
+        <a href="#top">Back to Top</a>
+    </footer>
+
+    <script>
+        function redirect(url) {
+            window.location.href = `{{ url_for('home') }}`.replace('home', url);
+        }
+    </script>
+</body>
+</html>

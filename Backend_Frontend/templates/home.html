@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescue Website Mashup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1 onclick="redirect('home')">Joy and Love Pet Rescue</h1>
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn">About</button>
+                <div class="dropdown-content">
+                    <form action="/about" method="POST">
+                        <button type="submit">Our Mission</button>
+                    </form>
+                    <form action="/team" method="POST">
+                        <button type="submit">Team</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Adopt</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('adopt') }}">
+                        <button type="submit">Adopt a Dog</button>
+                    </form>
+                    <form action="{{ url_for('adopted_cases') }}">
+                        <button type="submit">Adopted Dogs</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Get Involved</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('foster') }}">
+                        <button type="submit">Foster</button>
+                    </form>
+                    <form action="{{ url_for('volunteer') }}">
+                        <button type="submit">Volunteer</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Give</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('donate') }}">
+                        <button onclick = "redirect('donate')">Donate</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="left">
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/slideshow1.jpg') }}" alt="Dog 1">
+                    <div class="caption">Jennifer and Joey</div>
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/slideshow2.jpg') }}" alt="Dog 1">
+                    <div class="caption">Jennifer and Luna</div>
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/slideshow3.jpg') }}" alt="Dog 1">
+                    <div class="caption">Jennifer, Jennifer and Joy at a event</div>
+                </div>
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='images/slideshow4.jpg') }}" alt="Dog 1">
+                    <div class="caption">Jennifer with Hope and Dexter</div>
+                </div>
+                <button class="slideshow-button prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="slideshow-button next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+
+            <h2>Spreading Joy, Sharing Love, Saving lives</h2>
+            <button onclick = "redirect('donate')">DONATE</button>
+        </div>
+        <div class="right">
+            <img src = "{{ url_for('static', filename='images/logo_joy_and_love.png') }}" alt="Pet Rescue Hero Image">
+        </div>
+    </div>
+
+    <!-- Grid Section -->
+    <section class="grid">
+        <form action="{{ url_for('adopt') }}">
+            <div class="grid-item-left">
+                <button class = "main_btn" type = "submit">View Dogs Available for Adoption</button>
+            </div>
+        </form>
+        <form action="{{ url_for('foster') }}">
+            <div class="grid-item-right">
+                <button class = "main_btn">Foster</button>
+            </div>
+        </form>
+        <form action="{{ url_for('volunteer') }}">
+            <div class="grid-item-left">
+                <button class = "main_btn">Volunteer</button>
+            </div>
+        </form>
+        <form action="{{ url_for('adopted_cases') }}">
+            <div class="grid-item-right">
+                <button class = "main_btn">Joy and Love<br>Rescue Alumni</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Joy and Love Pet Rescue | Built with ❤️ for animal lovers.</p>
+        <a href="#top">Back to Top</a>
+    </footer>
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[slideIndex].style.display = 'block';
+        }
+
+        function redirect(url) {
+            window.location.href = `{{ url_for('home') }}`.replace('home', url);
+        }
+
+        // Automatically cycle slides
+        setInterval(() => changeSlide(1), 10000); // Change slide every 5 seconds
+    </script>
+</body>
+</html>

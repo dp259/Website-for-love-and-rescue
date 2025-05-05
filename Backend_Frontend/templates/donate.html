@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to Joy and Love Rescue</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/donate.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1 onclick="redirect('home')">Joy and Love Pet Rescue</h1>
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn">About</button>
+                <div class="dropdown-content">
+                    <form action="/about" method="POST">
+                        <button type="submit">Our Mission</button>
+                    </form>
+                    <form action="/team" method="POST">
+                        <button type="submit">Team</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Adopt</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('adopt') }}">
+                        <button type="submit">Adopt a Dog</button>
+                    </form>
+                    <form action="{{ url_for('adopted_cases') }}">
+                        <button type="submit">Adopted Dogs</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Get Involved</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('foster') }}">
+                        <button type="submit">Foster</button>
+                    </form>
+                    <form action="{{ url_for('volunteer') }}">
+                        <button type="submit">Volunteer</button>
+                    </form>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Give</button>
+                <div class="dropdown-content">
+                    <form action="{{ url_for('donate') }}">
+                        <button onclick = "redirect('donate')">Donate</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Wishlist Section -->
+    <section class="wishlist">
+        <h2>Our Wishlist</h2>
+        <p>Your donations help provide essential supplies for our rescue pets. Click the links below to purchase and send items directly to us!</p>
+        
+        <div class="wishlist-items">
+            <div class="item">
+                <h3>SKIPPY Peanut Butter, Creamy, 7 g protein per serving, 64 oz</h3>
+                <p>Nutritious and protein dense food helps keep our rescue dogs healthy and happy.</p>
+                <a href="https://a.co/d/cFh8YOp" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3> Elevated Dog Bowls, 4 Height Adjustable</h3>
+                <p>This type of adjustable dog bowl makes it so it could fit any potential future rescue, allowing for resources to be alocated to food or vet bills.</p>
+                <a href="https://a.co/d/8sQWjb6" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>Bully Max High Performance Premium Dry Dog Food for All Ages</h3>
+                <p>Nutritious foods help keeps our rescue dogs healthy, while also being able to feed different sized rescues.</p>
+                <a href="https://a.co/d/da72FWI" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>PetArmor 7 Way De-Wormer for Small Dogs & Puppies (6-25 lbs)</h3>
+                <p>Many rescued dogs come from uncertain backgrounds and may already be infected, making deworming essential for their health and well-being.</p>
+                <a href="https://a.co/d/flWk34b" target="_blank">Purchase Here</a>
+            </div>
+
+            <div class="item">
+                <h3>PetArmor 7 Way De-Wormer for Dogs (Over 25 lbs)</h3>
+                <p>Many rescued dogs come from uncertain backgrounds and may already be infected, making deworming essential for their health and well-being.</p>
+                <a href="https://a.co/d/h7tkSsX" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>Dog Toys for Aggressive Chewers</h3>
+                <p>These treats will keep dogs entertained for a while , it will keep them busy and distract their mind if necessary. These are given to foster parents when available.</p>
+                <a href="https://a.co/d/75zqdU6" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>Purina ONE True Instinct With A Blend Of Real Turkey and Venison Dry Dog Food</h3>
+                <p>Purina dog food is used with some foster parents for the fur baby under their care at their home. Any bag of food donation is appreciated.</p>
+                <a href="https://a.co/d/80VHpSW" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>POCBLUE Deluxe Washable Dog Bed for Large Dogs</h3>
+                <p>This washable dog bed provides rescued rescues with a comfortable, clean, and supportive resting space, essential for their recovery and well-being.</p>
+                <a href="https://a.co/d/90ygCF9" target="_blank">Purchase Here</a>
+            </div>
+
+            <div class="item">
+                <h3>No Pull Dog Harness Adjustable</h3>
+                <p>This no-pull harness with a sturdy leash ensures better control, safety, and comfort for rescued dogs during walks and training.</p>
+                <a href="https://a.co/d/8lo5Oh6" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>Gorilla Grip Set of 2 Dog Bowls, Holds 4 Cups (32 fl oz)</h3>
+                <p>Durable, non-slip stainless steel bowls provide a stable and hygienic feeding solution for rescued dogs.</p>
+                <a href="https://a.co/d/cfFi8Ec" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>Supet Inflatable Dog Cone Collar Alternative After Surgery</h3>
+                <p>A comfortable, inflatable alternative to traditional cones helps dogs recover from surgery without restricting their movement.</p>
+                <a href="https://a.co/d/h6BPOo1" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>UPSKY 3L Dog Water Bowl 101oz Stainless Steel Dog Bowl</h3>
+                <p>
+                    A large, no-spill water bowl ensures dogs stay hydrated while reducing mess, making it ideal for both home and travel use.</p>
+                <a href="https://a.co/d/hQkiOL5" target="_blank">Purchase Here</a>
+            </div>
+            
+            <div class="item">
+                <h3>AVELORA Dog Water Bottle</h3>
+                <p>A portable dog water bottle with a food container is perfect for keeping pets hydrated and fed during walks, hikes, and travel.</p>
+                <a href="https://a.co/d/fJHmiH8" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>Arm & Hammer for Dogs XL Training Pads</h3>
+                <p>These extra-large, super-absorbent training pads provide leak-proof protection and odor control, making them ideal for house training and caring for rescue dogs.</p>
+                <a href="https://a.co/d/7dYozn6" target="_blank">Purchase Here</a>
+            </div>
+            <div class="item">
+                <h3>Portable Camping Fan</h3>
+                <p>At dog adoption event we like to keep fans in front of the pets when they are laying down to keep them as cool as possible as Miami weather is not the best.</p>
+                <a href="https://a.co/d/c9NC9qZ" target="_blank">Purchase Here</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Donation Section -->
+    <section class="qr-donations">
+        <h2>Donate Directly via QR Code</h2>
+        <p>Scan a QR code below to donate through your preferred payment method.</p>
+        <br>
+        <div class = "vet-donation">
+            <h2>Another way to donate would be to help with vet bills</h2>
+            <h3>Town and County Veterinarian: (305) 238-2222</h3>
+            <p>Call that number and donate towards the account under Joy and Love Rescue!</p>
+        </div>
+
+        <div class="qr-grid">
+            <div class="qr-item">
+                <img src="{{ url_for('static', filename='images/joyandlove_paypal.jpg') }}" alt="PayPal QR Code">
+                <p>PayPal: @JoyAndLoveRescue</p>
+            </div>
+            <div class="qr-item">
+                <img src="{{ url_for('static', filename='images/joyandlove_cashapp.jpeg') }}" alt="CashApp QR Code">
+                <p>CashApp: $JoyAndLoveRescue</p>
+            </div>
+            <div class="qr-item">
+                <img src="{{ url_for('static', filename='images/joyandlove_venmo.png') }}" alt="Venmo QR Code">
+                <p>Venmo: @JoyAndLoveRescue</p>
+            </div>
+            <div class="qr-item">
+                <img src="{{ url_for('static', filename='images/joyandlove_zelle.jpg') }}" alt="Zelle QR Code">
+                <p>Zelle: joyandloverescue@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Joy and Love Pet Rescue | Built with ❤️ for animal lovers.</p>
+        <a href="#top">Back to Top</a>
+    </footer>
+
+    <script>
+        function redirect(url) {
+            window.location.href = `{{ url_for('home') }}`.replace('home', url);
+        }
+    </script>
+</body>
+</html>

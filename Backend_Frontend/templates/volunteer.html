@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Under Maintenance</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/maintanence.css') }}">
+</head>
+<body>
+    <div class="maintenance-container">
+        <h1 onclick="redirect('home')" class="maintenance-title">We'll Be Back Soon!</h1>
+        <p class="maintenance-message">
+            This page is currently under maintenance. We apologize for the inconvenience.
+            Please check back later. Thank you for your patience!
+        </p>
+        <a href="https://form.jotform.com/250168164115148" target="_blank">Surrender Application Here</a>
+    </div>
+
+    <script>
+        function redirect(url) {
+            window.location.href = `{{ url_for('home') }}`.replace('home', url);
+        }
+    </script>
+</body>
+</html>

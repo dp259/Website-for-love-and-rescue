@@ -33,6 +33,7 @@ class Dogs(Base):
 
     race = relationship('Raza', back_populates = 'breed_tracker')
     descriptor = relationship('character', back_populates = 'characteristic_tracker')
+    image = relationship('dog_image', back_populates = 'image_tracker')
 
 class Raza(Base):
     __tablename__ = 'Raza'
@@ -49,6 +50,14 @@ class character(Base):
     characteristic: Mapped[str] = mapped_column(String(255), nullable = False)
 
     characteristic_tracker = relationship('Dogs', back_populates = 'descriptor')
+    
+class dog_image(Base):
+    __tablename__ = 'dog_image'
+    image_id: Mapped[int] = mapped_column(Integer, primary_key = True, autoincrement = True)
+    dog_id: Mapped[int] = mapped_column(Integer, ForeignKey('Dogs.dog_id'), nullable = False)
+    img: Mapped[str] = mapped_column(String(255), nullable = False)
+
+    image_tracker = relationship('Dogs', back_populates = 'image')
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
@@ -63,10 +72,10 @@ Session = sessionmaker(bind = engine)
 
 try:
     # Load the datasets
-    df_dogs = pd.read_csv('Database\joyandlove_dog_info.csv')
+    df_dogs = pd.read_csv('Database\joyandlove_dog_info.csv', encoding='windows-1252')
 
     # Select important columns from dataset
-    required_columns = ['name', 'age', 'breed', 'story', 'Sex', 'characteristic', 'age_desc', 'adopted', 'fee']
+    required_columns = ['name', 'age', 'breed', 'story', 'Sex', 'characteristic', 'age_desc', 'adopted', 'fee', 'image_paths']
     df_dogs = df_dogs[required_columns]
 
     df_dogs['story'] = df_dogs['story'].replace('?', 'Not yet known')
@@ -88,6 +97,7 @@ try:
 
     breeds = []
     characteristics = []
+    img_paths = []
     with Session() as session:
         dog_ids = {dog.name: dog.dog_id for dog in session.query(Dogs).all()}
 
@@ -101,24 +111,35 @@ try:
                 characteristic_list = row['characteristic'].split(':')
                 for char in characteristic_list:
                     characteristics.append(character(dog_id = dog_id, characteristic = char.strip()))
+
+                img_list = row['image_paths'].split(':')
+                for imagen in img_list:
+                    img_paths.append(dog_image(dog_id = dog_id, img = imagen.strip()))
+                
             except KeyError as e:
                 print(f"Error processing row for dog '{row['name']}': {e}")
-            
+
         session.bulk_save_objects(breeds)
         session.bulk_save_objects(characteristics)
+        session.bulk_save_objects(img_paths)
         session.commit()
 
 except Exception as e:
     print(f"Error, {e}, was encountered")
-
+""""
 with Session() as session:
     # Query all dogs
     all_dogs = session.query(Dogs).all()
 
     # Print each dog's name and age
     for dog in all_dogs:
-        breeds = session.query(Raza).filter(Raza.dog_id == dog.dog_id).all()
+        breeds = session.query(Raza).filter_by(dog_id = dog.dog_id).all()
+        img_path = session.query(dog_image).filter(dog_image.dog_id == dog.dog_id).all()
         print(f"Name: {dog.name}, Age: {dog.age} {dog.age_desc}s, Adopted: {'Taken' if dog.adopted else 'Available'}")
         print("Breeds:")
         for breed in breeds:
             print(f"{breed.breed} breed")
+
+        for img in img_path:
+            print(f"{img.img}.jpg pathway")
+            """
